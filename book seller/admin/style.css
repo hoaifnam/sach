@@ -1,0 +1,478 @@
+/* Cấu trúc cơ bản */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Container chung */
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Admin container */
+.admin-container {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Main content area */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Dashboard stats */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 22%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    margin: 0 0 10px 0;
+}
+
+.stat-box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Recent activities section */
+.recent-activities {
+    margin-top: 30px;
+}
+
+.activity-box {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-box h3 {
+    margin: 0 0 10px 0;
+}
+
+.activity-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-box ul li {
+    margin-bottom: 10px;
+}
+
+.activity-box ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+/*quản lí sách*/
+/* Đặt chiều cao cố định cho tbody và thêm thanh cuộn */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-table thead {
+    background-color: #34495e;
+    color: #fff;
+}
+
+.book-table th,
+.book-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Tạo thanh cuộn chỉ cho tbody */
+.book-table tbody {
+    display: block; /* Chuyển tbody thành khối */
+    max-height: 550px; /* Chiều cao cố định cho nội dung */
+    overflow-y: auto; /* Thanh cuộn dọc */
+    width: 100%; /* Đảm bảo căn chỉnh với thead */
+}
+
+.book-table thead,
+.book-table tbody tr {
+    display: table; /* Đảm bảo giữ định dạng bảng */
+    width: 100%; /* Đồng bộ kích thước giữa thead và tbody */
+    table-layout: fixed; /* Cố định bố cục cột */
+}
+
+.book-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.book-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hình ảnh trong bảng */
+.book-table img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Liên kết trong bảng */
+.book-table a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.book-table a:hover {
+    text-decoration: underline;
+}
+/*thêm sách*/
+/* Định dạng form */
+.add-book-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Cho phép thanh cuộn khi nội dung vượt quá */
+    max-height: 90vh; /* Đảm bảo form không vượt quá chiều cao màn hình */
+}
+
+/* Các label và input trong form */
+.add-book-form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    margin-top: 30px;
+}
+
+.add-book-form input,
+.add-book-form select,
+.add-book-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-book-form textarea {
+    resize: vertical;
+}
+
+.add-book-form button {
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-book-form button:hover {
+    background-color: #3498db;
+}
+
+/* Cải thiện hình ảnh */
+.add-book-form input[type="file"] {
+    padding: 5px;
+}
+.add-book-form {
+    overflow-y: scroll;
+    max-height: 650px;
+}
+h2{
+    margin-left: 50%;
+}
+a{
+    margin-top: 15px;
+}
+
+/*chỉnh sửa*/
+/* Định dạng form chỉnh sửa sách */
+
+
+form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    margin-top: 15px;
+    height: 10px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #3498db;
+}
+
+/* Định dạng hình ảnh */
+form input[type="file"] {
+    padding: 5px;
+}
+/********************************************************/
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.order-table th, .order-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.order-table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.order-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.order-table tr:hover {
+    background-color: #ddd;
+}
+
+.order-table td form {
+    display: inline;
+}
+
+.order-table td select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.order-table td button {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-table td button:hover {
+    background-color: #2980b9;
+}
+/**/
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons and forms */
+button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+/*liên hệ*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Danh sách liên hệ */
+.contact-list {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-list h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Bảng danh sách liên hệ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Thông báo khi không có liên hệ */
+table td[colspan="5"] {
+    text-align: center;
+    padding: 15px;
+    color: #888;
+}
